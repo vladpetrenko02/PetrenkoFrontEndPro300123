@@ -2,7 +2,7 @@ let lengthArr = Number(prompt("Введіть довжину масиву"));
 let arr = [];
 
 for(let i = 0; i < lengthArr; i++){
-    arr.push(prompt(`Введіть ${i+1} елемент`));
+    arr.push(+prompt(`Введіть ${i+1} елемент`));
 }
 //перша зміна
 console.log(arr);
