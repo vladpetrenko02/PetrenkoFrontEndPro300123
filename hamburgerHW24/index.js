@@ -21,19 +21,19 @@ class Hamburger {
     calculateCalories() {
         this.calories = 0;
 
-        if(this.size === "small")
+        if(this.size === Hamburger.SIZE_SMALL)
             this.calories += 20;
-        if (this.size === "big")
+        if (this.size === Hamburger.SIZE_BIG)
             this.calories += 40;
-        if (this.stuffing === "cheese")
+        if (this.stuffing === Hamburger.STUFFING_CHEESE)
             this.calories += 20;
-        if (this.stuffing === "salat")
+        if (this.stuffing === Hamburger.STUFFING_SALAT)
             this.calories += 5;
-        if (this.stuffing === "potato")
+        if (this.stuffing === Hamburger.STUFFING_POTATO)
             this.calories += 10;
-        if (this.topping.some(item => item === "seasoning"))
+        if (this.topping.some(item => item === Hamburger.TOPPING_SEASONING))
             this.calories += 0;
-        if (this.topping.some(item => item === "sauce"))
+        if (this.topping.some(item => item === Hamburger.TOPPING_SAUCE))
             this.calories += 5;
 
         return this.calories;
@@ -42,19 +42,19 @@ class Hamburger {
     calculatePrice() {
         this.price = 0;
 
-        if(this.size === "small")
+        if(this.size === Hamburger.SIZE_SMALL)
             this.price += 50;
-        if (this.size === "big")
+        if (this.size === Hamburger.SIZE_BIG)
             this.price += 100;
-        if (this.stuffing === "cheese")
+        if (this.stuffing === Hamburger.STUFFING_CHEESE)
             this.price += 10;
-        if (this.stuffing === "salat")
+        if (this.stuffing === Hamburger.STUFFING_SALAT)
             this.price += 20;
-        if (this.stuffing === "potato")
+        if (this.stuffing === Hamburger.STUFFING_POTATO)
             this.price += 15;
-        if (this.topping.some(item => item === "seasoning"))
+        if (this.topping.some(item => item === Hamburger.TOPPING_SEASONING))
             this.price += 15;
-        if (this.topping.some(item => item === "sauce"))
+        if (this.topping.some(item => item === Hamburger.TOPPING_SAUCE))
             this.price += 20;
 
         return this.price;
