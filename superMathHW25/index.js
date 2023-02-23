@@ -1,48 +1,49 @@
 class SuperMath {
-    obj = {
-        x : 5,
-        y : 10,
-        znak : "+"
-    }
 
-    input() {
-        this.obj.x = +prompt("Введіть число X");
-        this.obj.y = +prompt("Введіть число Y");
-        this.obj.znak = prompt("Введіть дію над числами (+, -, /, *, %)");
+    input(obj) {
+        obj.x = +prompt("Введіть число X");
+        obj.y = +prompt("Введіть число Y");
+        obj.znak = prompt("Введіть дію над числами (+, -, /, *, %)");
 
-        if(this.obj.znak === "+" || this.obj.znak === "-" || this.obj.znak === "/" || this.obj.znak === "*" || this.obj.znak === "%") {
+        if(obj.znak === "+" || obj.znak === "-" || obj.znak === "/" || obj.znak === "*" || obj.znak === "%") {
             console.log("Znak Confirmed");
         } else {
             alert("Операцію над числами обрано неправильно, буде використане додавання.");
-            this.obj.znak = "+";
+            obj.znak = "+";
         }
     }
 
-    check() {
+    check(obj) {
         if(confirm("Чи бажаєте Ви виконати операцію над числами з даними значеннями і знаком?")) {
-            switch(this.obj.znak){
+            switch(obj.znak){
                 case "+":
-                    alert(`${this.obj.x} + ${this.obj.y} = ${this.obj.x + this.obj.y}`);
+                    alert(`${obj.x} + ${obj.y} = ${obj.x + obj.y}`);
                     break;
                 case "-":
-                    alert(`${this.obj.x} - ${this.obj.y} = ${this.obj.x - this.obj.y}`);
+                    alert(`${obj.x} - ${obj.y} = ${obj.x - obj.y}`);
                     break;
                 case "/":
-                    alert(`${this.obj.x} / ${this.obj.y} = ${this.obj.x / this.obj.y}`);
+                    alert(`${obj.x} / ${obj.y} = ${obj.x / obj.y}`);
                     break;
                 case "*":
-                    alert(`${this.obj.x} * ${this.obj.y} = ${this.obj.x * this.obj.y}`);
+                    alert(`${obj.x} * ${obj.y} = ${obj.x * obj.y}`);
                     break;
                 case "%":
-                    alert(`${this.obj.x} % ${this.obj.y} = ${this.obj.x % this.obj.y}`);
+                    alert(`${obj.x} % ${obj.y} = ${obj.x % obj.y}`);
                     break;
             }
         } else {
-            this.input();
-            this.check();
+            this.input(obj);
+            this.check(obj);
         }
     }
 }
 
+let obj = {
+    x : 5,
+    y : 10,
+    znak : "+"
+}
+
 const supermath = new SuperMath();
-supermath.check();
+supermath.check(obj);
