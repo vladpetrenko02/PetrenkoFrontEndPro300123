@@ -18,46 +18,58 @@ class Hamburger {
         this.topping.push(topping);
     }
 
+    getCalories(type) {
+        switch(type) {
+            case Hamburger.SIZE_SMALL:
+                return 20;
+            case Hamburger.SIZE_BIG:
+                return 40;
+            case Hamburger.STUFFING_CHEESE:
+                return 20;
+            case Hamburger.STUFFING_SALAT:
+                return 5;
+            case Hamburger.STUFFING_POTATO:
+                return 10;
+            case Hamburger.TOPPING_SEASONING:
+                return 0;
+            case Hamburger.TOPPING_SAUCE:
+                return 5;
+            default:
+                return 0;
+        }
+    }
+
+    getPrice(type) {
+        switch(type) {
+            case Hamburger.SIZE_SMALL:
+                return 50;
+            case Hamburger.SIZE_BIG:
+                return 100;
+            case Hamburger.STUFFING_CHEESE:
+                return 10;
+            case Hamburger.STUFFING_SALAT:
+                return 20;
+            case Hamburger.STUFFING_POTATO:
+                return 15;
+            case Hamburger.TOPPING_SEASONING:
+                return 15;
+            case Hamburger.TOPPING_SAUCE:
+                return 20;
+            default:
+                return 0;
+        }
+    }
+
     calculateCalories() {
-        this.calories = 0;
-
-        if(this.size === Hamburger.SIZE_SMALL)
-            this.calories += 20;
-        if (this.size === Hamburger.SIZE_BIG)
-            this.calories += 40;
-        if (this.stuffing === Hamburger.STUFFING_CHEESE)
-            this.calories += 20;
-        if (this.stuffing === Hamburger.STUFFING_SALAT)
-            this.calories += 5;
-        if (this.stuffing === Hamburger.STUFFING_POTATO)
-            this.calories += 10;
-        if (this.topping.some(item => item === Hamburger.TOPPING_SEASONING))
-            this.calories += 0;
-        if (this.topping.some(item => item === Hamburger.TOPPING_SAUCE))
-            this.calories += 5;
-
-        return this.calories;
+        return this.getCalories(this.size) + this.getCalories(this.stuffing) + this.topping.reduce((acum, item) => {
+            return acum + this.getCalories(item);
+        },0);
     }
 
     calculatePrice() {
-        this.price = 0;
-
-        if(this.size === Hamburger.SIZE_SMALL)
-            this.price += 50;
-        if (this.size === Hamburger.SIZE_BIG)
-            this.price += 100;
-        if (this.stuffing === Hamburger.STUFFING_CHEESE)
-            this.price += 10;
-        if (this.stuffing === Hamburger.STUFFING_SALAT)
-            this.price += 20;
-        if (this.stuffing === Hamburger.STUFFING_POTATO)
-            this.price += 15;
-        if (this.topping.some(item => item === Hamburger.TOPPING_SEASONING))
-            this.price += 15;
-        if (this.topping.some(item => item === Hamburger.TOPPING_SAUCE))
-            this.price += 20;
-
-        return this.price;
+        return this.getPrice(this.size) + this.getPrice(this.stuffing) + this.topping.reduce((acum, item) => {
+            return acum + this.getPrice(item);
+        },0);
     }
 }
 
