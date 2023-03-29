@@ -1,44 +1,40 @@
+const imgArr = [
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg"
+];
+
+let imageTarget = 0;
 const prevBtn = document.querySelector(".slider__btn-prev");
 const nextBtn = document.querySelector(".slider__btn-next");
 const elemImage = document.querySelector(".slider__image");
 
-function sliderLogic(callbackPrev, callbackNext) {
-    if(elemImage.getAttribute("src").includes("1.jpg")) {
-        prevBtn.style = "opacity: 0;"
-        prevBtn.setAttribute("disabled", '');
-    } else if (elemImage.getAttribute("src").includes("4.jpg")) {
-        nextBtn.style = "opacity: 0;"
-        nextBtn.setAttribute("disabled", '');
+function hiddenBtn() {
+    if (imageTarget === 0) {
+        prevBtn.disabled = true;
+        prevBtn.style.opacity = 0;
+    } else if (imageTarget === imgArr.length-1) {
+        nextBtn.disabled = true;
+        nextBtn.style.opacity = 0;
+    } else {
+        nextBtn.disabled = false;
+        prevBtn.disabled = false;
+        nextBtn.style.opacity = 1;
+        prevBtn.style.opacity = 1;
     }
-
-    prevBtn.addEventListener("click", callbackPrev);
-    nextBtn.addEventListener("click", callbackNext);
 }
 
-function prevBtnLogic(event) {
-    if(elemImage.getAttribute("src").includes("2")) {
-        event.target.style = "opacity: 0";
-        event.target.setAttribute("disabled", '')
-    } else if(elemImage.getAttribute("src").includes("4")) {
-        nextBtn.style = "";
-        nextBtn.removeAttribute("disabled");
-    }
+prevBtn.addEventListener("click", () => {
+    imageTarget--;
+    elemImage.setAttribute("src", imgArr[imageTarget]);
+    hiddenBtn()
+});
 
-    const imgNumber = +document.querySelector(".slider__image").getAttribute("src").charAt(9);
-    document.querySelector(".slider__image").setAttribute("src", `./images/${imgNumber-1}.jpg`)
-}
+nextBtn.addEventListener("click", () => {
+    imageTarget++;
+    elemImage.setAttribute("src", imgArr[imageTarget]);
+    hiddenBtn()
+});
 
-function nextBtnLogic(event) {
-    if(elemImage.getAttribute("src").includes("3")) {
-        event.target.style = "opacity: 0";
-        event.target.setAttribute("disabled", '');
-    } else if (elemImage.getAttribute("src").includes("1")) {
-        prevBtn.style = "";
-        prevBtn.removeAttribute("disabled");
-    }
-
-    const imgNumber = +document.querySelector(".slider__image").getAttribute("src").charAt(9);
-    document.querySelector(".slider__image").setAttribute("src", `./images/${imgNumber+1}.jpg`)
-}
-
-sliderLogic(prevBtnLogic, nextBtnLogic);
+hiddenBtn();
