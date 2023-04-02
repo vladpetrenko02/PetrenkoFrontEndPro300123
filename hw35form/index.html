@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW35</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <section class="form-section">
+            <h2>Form</h2>
+            <form class="form" action="#">
+                <div class="form__holder">
+                    <div class="form__nameInput">
+                        <div class="firstName">
+                            <label for="firstName">First Name</label>
+                            <input id="firstName" name="firstName" type="text">
+                        </div>
+                        <div class="lastName">
+                            <label for="lastName">Last Name</label>
+                            <input name="lastName" type="text">
+                        </div>
+                    </div>
+                    <div class="form__dateOfBirthInput">
+                        <label for="dateOfBirth">Date of birthday</label>
+                        <input id="dateOfBirth" name="dateOfBirth" type="text">
+                    </div>
+                    <div class="form__sexInput">
+                        <fieldset>
+                            <legend>Choose your gender</legend>
+                            <div class="man">
+                                <input id="sex-m" name="sex" value="man" type="radio">
+                                <label for="sex-m">Man</label>
+                            </div>
+                            <div class="woman">
+                                <input id="sex-w" name="sex" value="women" type="radio">
+                                <label for="sex-w">Woman</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form__cityInput">
+                        <label for="city">Where are you from?</label>
+                        <select id="city" name="city">
+                            <option value="Kyiv">Kyiv</option>
+                            <option value="Odesa">Odesa</option>
+                            <option value="Kharkiv">Kharkiv</option>
+                            <option value="Lviv">Lviv</option>
+                        </select>
+                    </div>
+                    <div class="form__addressInput">
+                        <label for="address">Your address</label>
+                        <textarea name="address" id="adress" rows="4"></textarea>
+                    </div>
+                    <div class="form__langInput">
+                        <label for="lan-e">English</label>
+                        <input id="lan-e" name="language" value="English" type="checkbox">
+                        <label for="lan-u">Ukrainian</label>
+                        <input id="lan-u" name="language" value="Ukrainian" type="checkbox">
+                        <label for="lan-j">Japanese</label>
+                        <input id="lan-j" name="language" value="Japanese" type="checkbox">
+                        <label for="lan-p">Polish</label>
+                        <input id="lan-p" name="language" value="Polish" type="checkbox">
+                    </div>
+                    <button type="submit">Send form</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>
