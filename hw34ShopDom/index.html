@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizShopify</title>
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <header id="header"></header>
+
+    <main id="main">
+        <div class="category-section">
+            <nav class="nav-category"></nav>
+        </div>
+        <div class="products-section">
+            <nav class="nav-product"></nav>
+        </div>
+        <div class="details-section"></div>
+
+        <div class="order-section">
+            <h3 class="order-section__title">Замовлення</h3>
+            <form id="form" action="#">
+                <div class="display-flex-rel">
+                    <label for="pib">Прізвище Ім'я По-батькові</label>
+                    <input id="pib" name="pib" type="text" placeholder="Petrenko Vladyslav">
+                </div>
+                <div class="display-flex-rel">
+                    <label for="city">Місто</label>
+                    <select id="city" name="city">
+                        <option value="choose">--Choose city--</option>
+                        <option value="Kyiv">Kyiv</option>
+                        <option value="Odesa">Odesa</option>
+                        <option value="Dnipro">Dnipro</option>
+                        <option value="Kharkiv">Kharkiv</option>
+                    </select>
+                </div>
+                <div class="display-flex-rel">
+                    <label for="storage">Склад НП</label>
+                    <input id="storage" name="storage" type="text" placeholder="31, Kyiv">
+                </div>
+                <div class="form__payMethod">
+                    <div>
+                        <label for="cardType">Карткою онлайн</label>
+                        <input id="cardType" type="radio" value="card" name="typeOfPay" checked>
+                    </div>
+                    <div>
+                        <label for="novaPayType">Накладний платіж</label>
+                        <input id="novaPayType" type="radio" value="novaPay" name="typeOfPay">
+                    </div>
+                </div>
+                <div class="display-flex-rel">
+                    <label for="amount">Кількість</label>
+                    <input id="amount" type="number" name="amount">
+                </div>
+                <div class="display-flex-rel">
+                    <label for="comment">Коментар</label>
+                    <textarea id="comment" name="comment" id="comment" cols="30" rows="3"></textarea>
+                </div>
+                <button class="form__button" type="submit">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script type="module" src="./scripts/index.js"></script>
+</body>
+
+</html>
